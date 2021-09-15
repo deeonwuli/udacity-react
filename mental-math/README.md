@@ -1,3 +1,8 @@
+# Explanation
+
+This was solved using react hooks and functional components  
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
