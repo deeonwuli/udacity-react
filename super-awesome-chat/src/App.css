@@ -58,9 +58,10 @@
   height: 80%;
   border: 1px solid;
   text-align: left;
-  min-height: 400px;
+  height: 400px;
   border-radius: 10px;
   padding-top: 1em;
+  overflow-y: scroll;
 }
 
 .name {
@@ -91,6 +92,10 @@ h2 {
   outline: none !important;
   box-shadow: none;
   background-color: #3498db;
+}
+
+.submit-button:disabled {
+  background-color: #4970a3;
 }
 
 .form-control,
