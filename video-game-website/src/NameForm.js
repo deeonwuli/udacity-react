@@ -68,7 +68,7 @@ export default function NameForm() {
             {item} played {games ? '0' : '*/'} games.
           </li>
         ))}
-        <button onClick={toggleGamesPlayed} className="smallButton">Hide</button>
+        <button onClick={toggleGamesPlayed} className="smallButton">{games ? 'Hide' : 'Show'} the Number of Games Played</button>
       </ol>
     </>
   )
