@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import NameForm from './NameForm';
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
