@@ -26,7 +26,7 @@ export default function NameForm() {
   const addName = (event) => {
     event.preventDefault();
     if (items.includes(userName)) {
-      return(<p>Error! Enter a unique username.</p>)
+      alert('Error! Enter a unique username.')
     } else {
       const newItems = [...items, userName]
       setItems(newItems)
