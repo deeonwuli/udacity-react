@@ -12,50 +12,45 @@ const App = () => {
 
   const addItem = (event) => {
     event.preventDefault();
-    setItems(oldState => ({
-      items: [...oldState.items, items],
-    }));
+    const newItems = [...items, value]
+    setItems(newItems)
+    setValue('')
   };
 
   const deleteLastItem = () => {
-    setItems(() => ({ items: items.slice(0, -1) }));
+    const news = items.slice(0, -1)
+    setItems(news)
   };
 
-  const inputIsEmpty = () => {
-    return value === '';
-  };
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">ReactND - Coding Practice</h1>
+      </header>
 
-  const noItemsFound = () => {
-    return items.length === 0;
-  };
+      <h2>Shopping List</h2>
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">ReactND - Coding Practice</h1>
-        </header>
-        <h2>Shopping List</h2>
-        <form onSubmit={addItem}>
-          <input
-            type="text"
-            placeholder="Enter New Item"
-            value={value}
-            onChange={handleChange}
-          />
-          <button disabled={inputIsEmpty}>Add</button>
-        </form>
+      <form onSubmit={addItem}>
+        <input
+          type="text"
+          placeholder="Enter New Item"
+          value={value}
+          onChange={handleChange}
+        />
+        <button disabled={!value}>Add</button>
+      </form>
 
-        <button onClick={deleteLastItem} disabled={noItemsFound}>
-          Delete Last Item
-        </button>
+      <button onClick={deleteLastItem} disabled={!items.length}>
+        Delete Last Item
+      </button>
 
-        <p className="items">Items</p>
-        <ol className="item-list">
-          {items.map((item, index) => <li key={index}>{item}</li>)}
-        </ol>
-      </div>
-    );
+      <p className="items">Items</p>
+      <ol className="item-list">
+        {items.map((item, index) => <li key={index}>{item}</li>)}
+      </ol>
+    </div>
+  );
   }
 
 export default App;
