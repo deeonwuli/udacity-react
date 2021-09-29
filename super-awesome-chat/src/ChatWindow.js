@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function ChatWindow() {
   const [text, setText] = useState('');
   const [messages, setMessages] = useState([]);
-  const [isDisabled, setDisabled] = useState(false);
 
   const users = [
     { username: "Amy" }, 
