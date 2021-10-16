@@ -45,12 +45,6 @@
       }
 
       // App Code
-      const store = Redux.createStore(Redux.combineReducers({
-        todos,
-        goals,
-        loading
-      }), Redux.applyMiddleware(ReduxThunk.default, logger))
-
       store.subscribe(() => {
         const { goals, todos } = store.getState()
 
@@ -127,93 +121,7 @@
     </script>
 
     <script type="text/babel">
-      const List = props => {
-        return (
-          <ul>
-            {props.items.map((item) => (
-              <li key={item.id}>
-                <span 
-                  style={{ textDecoration: item.complete ? 'line-through' : 'none' }}
-                  onClick={() => props.toggle && props.toggle(item.id)}
-                >
-                  {item.name}
-                </span> 
-                <button onClick={() => props.remove(item)}>X</button> 
-              </li>
-            ))}
-          </ul>
-        )
-      }
 
-      const Todo = (props) => {
-        let textInput = null
-
-        const addItem = (e) => {
-          e.preventDefault()
-          props.dispatch(handleAddTodo(
-            textInput.value,
-            () => textInput.value = ''
-          ))
-        }
-
-        const removeItem = (todo) => {
-          props.dispatch(handleDeleteTodo(todo))
-        }
-
-        const toggleItem = (id) => {
-          props.dispatch(handleToggleTodo(id))
-        }
-
-        return (
-          <div>
-            <h1>Todo List</h1>
-            <input
-              type="text" 
-              placeholder="Add Todo"
-              ref={(input) => { textInput = input }}
-            />
-            <button onClick={addItem}>Add Todo</button>            
-            <List items={props.todos} remove={removeItem} toggle={toggleItem} />
-          </div>
-        )
-      }
-
-      const ConnectedTodos = ReactRedux.connect((state) => ({
-        todos: state.todos
-      }))(Todos)
-
-      const Goal = (props) => {
-        let textInput = null
-
-        const addItem = (e) => {
-          e.preventDefault()
-          props.dispatch(handleAddGoal(
-            textInput.value,
-            () => textInput.value = ''
-          ))
-        }
-
-        const removeItem = (goal) => {
-          props.dispatch(handleDeleteGoal(goal))
-        }
-        
-        return (
-          <div>
-            <h1>Goal List</h1>
-            <input
-              type="text"
-              placeholder="Add Goal"
-              ref={(input) => { textInput = input }}
-            />
-            <button onClick={addItem}>Add Goal</button>
-            <List items={props.goals} remove={removeItem} />
-          </div>
-        )
-      }
-
-      const ConnectedGoals = ReactRedux.connect((state) => ({
-        goals: state.goals
-      }))(Goals)
 
       class App extends React.Component {
         componentDidMount () {
