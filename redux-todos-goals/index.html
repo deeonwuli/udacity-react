@@ -121,31 +121,6 @@
     </script>
 
     <script type="text/babel">
-
-
-      class App extends React.Component {
-        componentDidMount () {
-          const { dispatch } = this.props
-          dispatch(handleInitialData())
-        }
-
-        render () {
-          if (this.props.loading === true) {
-            return <h2>Loading</h2>
-          }
-
-          return (
-            <div>
-              <ConnectedTodos />
-              <ConnectedGoals />  
-            </div>
-          )
-        }
-      }
-
-      const ConnectedApp = ReactRedux.connect((state) => ({
-        loading: state.loading
-      }))(App)
       
       ReactDOM.render(
         <ReactRedux.Provider store={store} >
